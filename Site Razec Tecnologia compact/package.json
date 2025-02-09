@@ -1,0 +1,22 @@
+{
+  "name": "razec-marketing-website",
+  "version": "1.0.0",
+  "description": "Razec Marketing e Tecnologia Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server",
+    "test": "echo \"No tests specified\" && exit 0",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/razec-marketing-website.git"
+  },
+  "keywords": ["marketing", "technology", "website"],
+  "author": "Razec Marketing e Tecnologia",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "http-server": "^14.1.0",
+    "eslint": "^8.0.0"
+  }
+}

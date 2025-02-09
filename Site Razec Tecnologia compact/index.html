@@ -1,0 +1,556 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razec Marketing e Tecnologia</title>
+    <link rel="stylesheet" href="css/space-background.css">
+    <link rel="stylesheet" href="css/slogan-typing.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0f3460;
+            --secondary-color: #16213e;
+            --accent-color: #e94560;
+            --text-color-light: #fff;
+            --text-color-dark: #333;
+            --bg-light: linear-gradient(to right, #1a1a2e, #16213e);
+            --bg-dark: #121212;
+        }
+
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-color-light);
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+       
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: var(--bg-dark);
+                color: var(--text-color-dark);
+            }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            background: var(--primary-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 35px;
+            max-height: 300px;
+            max-width: 180px;
+        }
+
+        .logo {
+            padding-left: 20px;
+        }
+
+        /* Adjust header title positioning */
+        .header-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: #FFFF00; /* Cor amarela neon */
+            text-shadow: 0 0 10px #FFFF00, 0 0 20px #FFFF00; /* Efeito de brilho neon */
+            margin-bottom: 0.5rem;
+        }
+
+        .slogan-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        header nav {
+            display: none;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        header nav ul li {
+            margin: 0;
+        }
+
+        header nav ul li a {
+            color: var(--text-color-light);
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem; 
+            text-align: center;
+            width: 100%;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            padding: 1rem;
+            transition: grid-template-columns 0.3s ease;
+            margin-top: 2rem; 
+        }
+
+        .service {
+            background: var(--primary-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Brilho */
+        }
+
+        .service:active {
+            box-shadow: 0 0 30px rgba(255, 255, 255, 1); /* Brilho mais forte no toque */
+        }
+
+        /* Responsive adjustments for service grid */
+        @media (max-width: 768px) {
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-grid {
+                grid-template-columns: 1fr; 
+            }
+        }
+
+        /* Form Section */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            margin: 3rem auto;
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .form-container h2 {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input, form textarea, form button {
+            width: 100%;
+            max-width: 400px;
+            padding: 1rem;
+            margin: 0.8rem 0;
+            border-radius: 0.5rem;
+            border: none;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        form input, form textarea {
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        form button {
+            background: var(--accent-color);
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            max-width: 200px;
+        }
+
+        form button:hover {
+            background: #d03855;
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 1.5rem;
+                margin: 2rem 1rem;
+            }
+
+            form input, form textarea, form button {
+                max-width: 100%;
+            }
+        }
+
+        /* Meta and Projects Modernization */
+        #visao-missao-valores, #projetos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        #visao-missao-valores div, #projetos div {
+            flex: 1;
+            padding: 1rem;
+            border-radius: 1rem;
+            background: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+
+        #visao-missao-valores div:hover, #projetos div:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Brilho */
+        }
+
+        #visao-missao-valores h3, #projetos h3 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        #visao-missao-valores p, #projetos p {
+            color: var(--text-color-light);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: var(--text-color-light);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Modern Navigation Menu Styles */
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 1rem 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            background: rgba(22, 33, 62, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color-light);
+            font-weight: 500;
+            position: auto;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: block;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color-light);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: rgba(16, 33, 62, 0.95);
+                backdrop-filter: blur(15px);
+                transition: left 0.3s ease;
+                z-index: 1000;
+                gap: 3rem;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                z-index: 1002;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="space-background">
+        <div class="stars"></div>
+        <div class="meteors"></div>
+        <div class="astronaut"></div>
+    </div>
+
+    <header>
+        <img src="images/logo.png.png" alt="Logo" class="logo">
+        
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="nav-container">
+            <div class="nav-menu">
+                <a href="#inicio">Início</a>
+                <a href="#visao-missao-valores">Nossa Meta</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#contato">Contatos</a>
+            </div>
+        </nav>
+
+        <div class="header-title">
+            <h1>Razec Marketing e Tecnologia</h1>
+            <div class="slogan-container">
+                <span class="slogan-static" style="color: white;">Tecnologia&nbsp</span> 
+                <span class="slogan-dynamic"></span>
+                <span class="cursor">|</span>
+            </div>
+        </div>
+    </header>
+    
+
+    <main>
+        <section id="inicio" class="services">
+            <h2>Nossos Serviços</h2>
+            <div class="service-grid">
+                <div class="service">
+                    <h3>Sites Modernos</h3>
+                    <p>Criação de sites responsivos com design moderno e eficaz.</p>
+                </div>
+                <div class="service">
+                    <h3>Landing Pages</h3>
+                    <p>Captação de leads com páginas otimizadas.</p>
+                </div>
+                <div class="service">
+                    <h3>E-commerce</h3>
+                    <p>Plataformas de e-commerce poderosas e escaláveis.</p>
+                </div>
+                <div class="service">
+                    <h3>Aplicativos</h3>
+                    <p>Desenvolvimento de apps personalizados para seu negócio.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="visao-missao-valores">
+            <div>
+                <h3>Visão</h3>
+                <p>Ser referência em soluções digitais inovadoras.</p>
+            </div>
+            <div>
+                <h3>Missão</h3>
+                <p>Oferecer soluções eficazes que atendam às necessidades dos nossos clientes.</p>
+            </div>
+            <div>
+                <h3>Valores</h3>
+                <p>Compromisso com a qualidade, inovação e atendimento personalizado.</p>
+            </div>
+        </section>
+
+        <section id="projetos">
+            <div>
+                <h3>Sites</h3>
+                <p>Transformamos ideias em soluções práticas e inovadoras.</p>
+            </div>
+            <div>
+                <h3>Aplicativos</h3>
+                <p>Desenvolvimento de plataformas de alto desempenho.</p>
+            </div>
+            <div>
+                <h3>Desenvolvimento de Sistemas</h3>
+                <p>Projetos personalizados que atendem às necessidades de cada cliente.</p>
+            </div>
+        </section>
+
+        <section id="contato" class="form-container">
+            <h2>Contato</h2>
+            <form id="contatoForm">
+                <input type="text" id="nome" placeholder="Nome" required>
+                <input type="email" id="email" placeholder="E-mail" required>
+                <textarea id="mensagem" placeholder="Mensagem" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Razec Marketing e Tecnologia S.A | todos os direitos reservados 2025</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/551156784450?text=Olá! Quero falar com o especialista em Tecnologia para fazer um orçamento!" target="_blank">
+        <div class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+    </a>
+
+    <div class="transformer-robot">
+        <div class="robot-body">
+            <div class="robot-head">
+                <div class="robot-eye left-eye"></div>
+                <div class="robot-eye right-eye"></div>
+            </div>
+            <div class="robot-chest"></div>
+            <div class="robot-arms">
+                <div class="robot-arm left-arm"></div>
+                <div class="robot-arm right-arm"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/space-background.js"></script>
+    <script src="js/slogan-typing.js" defer></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            
+            navMenu.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        }
+
+        document.getElementById('contatoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const textoWhatsapp = `Olá! Quero falar com o especialista em Tecnologia para fazer um orçamento! \nNome: ${nome} \nE-mail: ${email} \nMensagem: ${mensagem}`;
+            window.open(`https://wa.me/551156784450?text=${encodeURIComponent(textoWhatsapp)}`, '_blank');
+        });
+    </script>
+</body>
+</html>

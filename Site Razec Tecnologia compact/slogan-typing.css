@@ -1,0 +1,33 @@
+.header-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.slogan-container {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slogan-static {
+    color: red;
+}
+
+.slogan-dynamic {
+    color: red;
+}
+
+.cursor {
+    color: red;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
